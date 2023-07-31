@@ -69,6 +69,8 @@ async def write_profile_to_json(username):
 
     output = Path(__file__).parent / "results"
     output.mkdir(exist_ok=True)
+    if not Path.exists(output.joinpath("profile.json")):
+        output.joinpath("profile.json").touch(exist_ok=True)
     write_json(profile, output.joinpath("profile.json"))
 
 
